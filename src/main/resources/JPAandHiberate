@@ -1,0 +1,49 @@
+  1,https://www.springboottutorial.com/spring-boot-with-mysql-and-oracle
+  2,https://github.com/in28minutes/jpa-with-hibernate#installing-and-setting-up-mysql
+
+  3,how to configure hiberate in spring boot?
+  https://howtodoinjava.com/spring-boot2/hibernate-configuration-intuit/
+
+  5,how to add auth users in spring boot:
+  https://developer.okta.com/blog/2018/10/05/build-a-spring-boot-app-with-user-authentication
+  https://spring.io/guides/tutorials/spring-boot-oauth2/
+  https://www.tutorialspoint.com/spring_boot/spring_boot_oauth2_with_jwt.htm
+
+  6,how to use h2 database?
+  https://howtodoinjava.com/spring-boot2/h2-database-intuit/
+
+  7,Hibernate / JPA 2 Persistence Annotations Tutorial
+  https://howtodoinjava.com/hibernate/hibernate-jpa-2-persistence-annotations-tutorial/
+
+  8, how to use junit test in spring boot?
+  https://javacodehouse.com/blog/junit-tutorial/
+
+  9,Centralized Authorization with OAuth2 + JWT using Spring Boot 2
+  https://blog.marcosbarbero.com/centralized-authorization-jwt-spring-boot2/
+
+  CREATE TABLE tweet(
+          id bigint(20) NOT NULL AUTO_INCREMENT,
+          user_id bigint(20) NOT NULL,
+          content text,
+          CONSTRAINT FK_user_id FOREIGN KEY (user_id)
+          REFERENCES user(id),
+          PRIMARY KEY (id)
+       )ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+  CREATE TABLE friendship(
+         id bigint(20) NOT NULL AUTO_INCREMENT,
+         from_user_id bigint(20) NOT NULL,
+         to_user_id bigint(20) NOT NULL,
+         created_time time,
+         PRIMARY KEY (id),
+         CONSTRAINT FK_from_user_id FOREIGN KEY (user_id)
+         REFERENCES user(id)
+      )ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+   CREATE TABLE user(
+          id bigint(20) NOT NULL AUTO_INCREMENT,
+          user_name varchar(100) NOT NULL UNIQUE,
+          user_password varchar(20) NOT NULL,
+          email varchar(100) NOT NULL,
+          PRIMARY KEY (id)
+       )ENGINE=InnoDB DEFAULT CHARSET=utf8;
