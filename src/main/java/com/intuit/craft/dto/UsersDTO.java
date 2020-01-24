@@ -1,23 +1,29 @@
 package com.intuit.craft.dto;
 
+import java.sql.Timestamp;
+
 public class UsersDTO {
+    private long id;
     private String username;
     private String password;
     private String email;
     private String picUrl;
+    private long followers;
+    private long following;
+    private long tweets;
+    private Timestamp created_at;
 
     public UsersDTO(){
 
     }
 
-    public UsersDTO(String username, String password, String email, String picUrl){
-        this.username = username;
-        this.password = password;
-        this.email = email;
-        this.picUrl = picUrl;
-
+    public long getId() {
+        return id;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getUsername() {
 
@@ -55,6 +61,37 @@ public class UsersDTO {
         this.picUrl = picUrl;
     }
 
+    public long getFollowers() {
+        return followers;
+    }
+
+    public void setFollowers(long followers) {
+        this.followers = followers;
+    }
+
+    public long getFollowing() {
+        return following;
+    }
+
+    public void setFollowing(long following) {
+        this.following = following;
+    }
+
+    public long getTweets() {
+        return tweets;
+    }
+
+    public void setTweets(long tweets) {
+        this.tweets = tweets;
+    }
+
+    public Timestamp getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(Timestamp created_at) {
+        this.created_at = created_at;
+    }
     /*
      CREATE TABLE user(
         id bigint(20) NOT NULL AUTO_INCREMENT,

@@ -20,15 +20,15 @@ public class TweetResource {
     @Autowired
     private TweetService tweetService;
 
-    @GetMapping(path = "feed/{id}", produces = "application/json")
-    public ResponseEntity<List<TweetDTO>> feed(@PathVariable Long id) {
-        log.debug("to get all the feed from the table.");
+    @GetMapping(path = "tweets", produces = "application/json")
+    public ResponseEntity<List<TweetDTO>> feed(@RequestParam Long id) {
+        log.debug("to get all the feed for user:{} from the table.", id);
         List<TweetDTO> tweetDTOList = tweetService.feed(id);
         return new ResponseEntity<>(tweetDTOList, HttpStatus.OK);
     }
 
-    @PutMapping(path = "tweet/{id}", produces = "application/json")
-    public void tweet(@RequestBody TweetDTO tweetDTO, @PathVariable Long id) {
+    @PostMapping(path = "tweet", produces = "application/json")
+    public void tweet(@RequestBody TweetDTO tweetDTO, @RequestParam Long id) {
         tweetDTO.setUser_id(id);
         tweetService.tweet(tweetDTO);
     }

@@ -23,4 +23,6 @@
 HELP.md
 demo.iml
 target/
+.idea/
+craft.iml
 hs_err_pid*

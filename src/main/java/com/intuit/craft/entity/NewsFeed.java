@@ -4,10 +4,11 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.Date;
 
 @Entity
-@Table(name = "TWEET")
-public class Tweet {
+@Table(name = "NEWSFEED")
+public class NewsFeed {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private long id;
@@ -15,8 +16,8 @@ public class Tweet {
     @Column(name = "USER_ID",length = 20)
     private long userId;
 
-    @Column(name = "CONTENT")
-    private String content;
+    @Column(name = "TWEET_ID",length = 20)
+    private long tweetId;
 
     @CreationTimestamp
     @Column(name = "created_at",length = 45)
@@ -26,7 +27,9 @@ public class Tweet {
         return id;
     }
 
-    public void setId(long id) { this.id = id; }
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public long getUserId() {
         return userId;
@@ -36,20 +39,19 @@ public class Tweet {
         this.userId = userId;
     }
 
-    public String getContent() {
-        return content;
+    public long getTweetId() {
+        return tweetId;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setTweetId(long tweetId) {
+        this.tweetId = tweetId;
     }
 
-    public Timestamp getCreatedAt() {
+    public Date getCreatedAt() {
         return createdAt;
     }
 
     public void setCreatedAt(Timestamp createdAt) {
         this.createdAt = createdAt;
     }
-
 }

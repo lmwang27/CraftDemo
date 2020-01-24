@@ -11,4 +11,5 @@ public interface TweetRepo extends JpaRepository<Tweet, Long> {
     List<Tweet> findAllByUserId(Long userId);
     List<Tweet> findAllByUserIdIn(List<Long> userIds);
     List<Tweet> findTop100ByUserIdInOrderByIdDesc(List<Long> userIds);
+    List<Tweet> findAllByIdIn(List<Long> tweetIds);
 }

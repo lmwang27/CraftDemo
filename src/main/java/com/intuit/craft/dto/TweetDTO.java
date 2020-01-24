@@ -1,11 +1,12 @@
 package com.intuit.craft.dto;
 
+import java.sql.Timestamp;
+
 public class TweetDTO {
     private long id;
     private long user_id;
     private String content;
-    private String picURL;
-    private String createdTime;
+    private Timestamp createdTime;
 
     public long getId() {
         return id;
@@ -31,19 +32,7 @@ public class TweetDTO {
         this.content = content;
     }
 
-    public String getPicURL() {
-        return picURL;
-    }
-
-    public void setPicURL(String picURL) {
-        this.picURL = picURL;
-    }
-
-    public String getCreatedTime() {
-        return createdTime;
-    }
-
-    public void setCreatedTime(String createdTime) {
+    public void setCreatedTime(Timestamp createdTime) {
         this.createdTime = createdTime;
     }
 
