@@ -124,7 +124,11 @@ public class FriendshipService {
     }
 
     public List<Long> getAllFollows(Long userId){
+
         List<Friendship> friendshipList = friendshipRepo.findAllByFromUserId(userId);
+        if (friendshipList == null ||friendshipList.size()==0)
+            return new ArrayList<Long>();
+
         List<Long> follows = new ArrayList<>();
         for (Friendship friendship : friendshipList) {
             follows.add(friendship.getToUserId());
@@ -134,6 +138,8 @@ public class FriendshipService {
 
     public List<Long> getAllFollower(Long userId) {
         List<Friendship> friendshipList = friendshipRepo.findAllByToUserId(userId);
+        if (friendshipList == null ||friendshipList.size()==0)
+            return new ArrayList<Long>();
         List<Long> followers = new ArrayList<>();
         for (Friendship friendship : friendshipList) {
             followers.add(friendship.getFromUserId());

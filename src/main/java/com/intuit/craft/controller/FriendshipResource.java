@@ -21,19 +21,32 @@ public class FriendshipResource {
     @Autowired
     FriendshipService friendshipService;
 
-    @GetMapping(path = "followings", produces = "application/json")
+    @GetMapping(path = "friendship", produces = "application/json")
     public ResponseEntity<List<FriendshipDTO>> findAllFollowing() {
         log.debug("to get all folloings from the friendship table.");
         List<FriendshipDTO> followings= friendshipService.findAllFollowing();
         return new ResponseEntity(followings, HttpStatus.OK);
     }
 
-    @PostMapping(path = "follow", produces = "application/json")
+    @GetMapping(path = "friendship/followers", produces = "application/json")
+    public ResponseEntity<List<FriendshipDTO>> findFollowers(@RequestParam long user_id) {
+        log.debug("to get all followers from the friendship table.");
+        List<Long> followers= friendshipService.getAllFollower(user_id);
+        return new ResponseEntity(followers, HttpStatus.OK);
+    }
+    @GetMapping(path = "friendship/followings", produces = "application/json")
+    public ResponseEntity<List<FriendshipDTO>> findFollowings(@RequestParam long user_id) {
+        log.debug("to get all followings from the friendship table.");
+        List<Long> followings= friendshipService.getAllFollows(user_id);
+        return new ResponseEntity(followings, HttpStatus.OK);
+    }
+
+    @PostMapping(path = "friendship", produces = "application/json")
     public void follow(@RequestBody FriendshipDTO friendshipDTO){
         friendshipService.follow(friendshipDTO);
     }
 
-    @DeleteMapping(path = "unfollow", produces = "application/json")
+    @DeleteMapping(path = "friendship", produces = "application/json")
     public void unfollow(@RequestBody FriendshipDTO friendshipDTO){
         friendshipService.unfollow(friendshipDTO);
     }
