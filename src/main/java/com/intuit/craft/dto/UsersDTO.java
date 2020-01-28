@@ -12,7 +12,6 @@ public class UsersDTO {
     private long following;
     private long tweets;
     private Timestamp created_at;
-
     public UsersDTO(){
 
     }

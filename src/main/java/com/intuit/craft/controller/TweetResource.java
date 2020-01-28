@@ -20,7 +20,7 @@ public class TweetResource {
     @Autowired
     private TweetService tweetService;
 
-    @GetMapping(path = "tweet", produces = "application/json")
+    @GetMapping(path = "feed", produces = "application/json")
     public ResponseEntity<List<TweetDTO>> feed(@RequestParam Long user_id) {
         log.debug("to get all the feed for user:{} from the table.", user_id);
         List<TweetDTO> tweetDTOList = tweetService.feed(user_id);
