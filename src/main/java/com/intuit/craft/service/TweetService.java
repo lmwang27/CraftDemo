@@ -1,8 +1,7 @@
 package com.intuit.craft.service;
 
-import com.intuit.craft.dto.UsersDTO;
 import com.intuit.craft.entity.Users;
-import com.intuit.craft.newsfeedHelper.NewsFeedHelper;
+import com.intuit.craft.newsfeed.NewsFeedHelper;
 import com.intuit.craft.dto.TweetDTO;
 import com.intuit.craft.entity.Tweet;
 import com.intuit.craft.repository.TweetRepo;
@@ -14,11 +13,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 /**
  * Post a tweet /News Feed /Timeline

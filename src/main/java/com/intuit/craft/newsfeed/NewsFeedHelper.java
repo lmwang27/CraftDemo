@@ -1,4 +1,4 @@
-package com.intuit.craft.newsfeedHelper;
+package com.intuit.craft.newsfeed;
 
 import com.intuit.craft.entity.Friendship;
 import com.intuit.craft.entity.NewsFeed;

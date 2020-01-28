@@ -1,12 +1,11 @@
 package com.intuit.craft.service;
 
 import com.intuit.craft.entity.Users;
-import com.intuit.craft.newsfeedHelper.NewsFeedHelper;
+import com.intuit.craft.newsfeed.NewsFeedHelper;
 import com.intuit.craft.dto.FriendshipDTO;
 import com.intuit.craft.entity.Friendship;
 import com.intuit.craft.repository.FriendshipRepo;
 import com.intuit.craft.repository.UsersRepo;
-import org.assertj.core.api.OptionalIntAssert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +15,6 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 /**
  * Follow/Unfollow
